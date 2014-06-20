@@ -1,0 +1,9 @@
+@CHARSET "ISO-8859-1";
+body {
+	background-image: url(/OtelOtomasyon/resources/images/Resepsiyonn.jpg);
+	margin: auto;
+	padding: auto;
+	color: #000000;
+	font-family: Trebuchet MS, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}

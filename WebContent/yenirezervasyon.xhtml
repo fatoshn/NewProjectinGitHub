@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<f:view>
+	<h:head>
+		<title>Yeni Rezervasyon</title>
+		<style>
+.ui-button {
+	height: 25px;
+}
+
+.ui-button-text-only .ui-button-text {
+	padding: 0em 1em;
+}
+
+.oda-button {
+	cursor: pointer;
+	border: none;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	height: 30px
+}
+</style>
+
+
+	</h:head>
+	<h:body>
+		<h:outputStylesheet library="css" name="style.css" />
+		<h:outputStylesheet library="css" name="stil.css" />
+		<h:outputStylesheet library="css" name="rezervasyon.css" />
+		<h:form>
+
+			<div id="sayfa">
+				<div id="ust">
+					<ui:insert name="menu">
+						<ui:include src="menu.xhtml" />
+					</ui:insert>
+				</div>
+				<div id="orta" style="width: 813px; padding: 14px 0 0 25px;">
+					<div id="sol" style="width: 310px; padding: 0">
+
+						<h:panelGrid columns="2" id="panel" style="margin-top: 5px;">
+							<h:outputLabel>Oda No:        </h:outputLabel>
+							<p:inputText value="#{RezervasyonEkle.rezervasyon.odaNo}" />
+							<h:outputLabel>Müşteri Adı:   </h:outputLabel>
+							<p:inputText value="#{RezervasyonEkle.rezervasyon.musteriAdi}" />
+							<h:outputLabel>Müşteri Soyadı:</h:outputLabel>
+							<p:inputText value="#{RezervasyonEkle.rezervasyon.musteriSoyadi}" />
+							<h:outputLabel>Telefonu:      </h:outputLabel>
+							<p:inputText value="#{RezervasyonEkle.rezervasyon.musteriCepTel}" />
+							<h:outputLabel>Kişi Sayısı:   </h:outputLabel>
+							<p:inputText value="#{RezervasyonEkle.rezervasyon.r_KisiSayisi}" />
+							<h:outputLabel>Giriş Tarihi:  </h:outputLabel>
+							<p:inputText value="#{RezervasyonEkle.rezervasyon.girisTarihi}" />
+							<h:outputLabel>Çıkış Tarihi:  </h:outputLabel>
+							<p:inputText value="#{RezervasyonEkle.rezervasyon.cikisTarihi}" />
+							<h:outputLabel>Gece Sayısı:   </h:outputLabel>
+							<p:inputText id="gece"
+								value="#{RezervasyonEkle.rezervasyon.geceSayisi}" />
+							<h:outputLabel>Ödeme Türü     </h:outputLabel>
+							<p:selectOneMenu id="odeme" style="width:170px;"
+								value="#{RezervasyonEkle.rezervasyon.odemeTuru}">
+								<f:selectItem itemLabel="TürkLirası" itemValue="TL" />
+								<f:selectItem itemLabel="Euro" itemValue="Euro" />
+								<f:selectItem itemLabel="Dolar" itemValue="Dolar" />
+								<f:selectItem itemLabel="Dinar" itemValue="Dinar" />
+							</p:selectOneMenu>
+							<h:outputLabel>Toplam Ücret:      </h:outputLabel>
+							<p:inputText value="#{RezervasyonEkle.rezervasyon.toplamUcret}"
+								required="true" />
+						</h:panelGrid>
+
+
+					</div>
+					<div id="sag"
+						style="padding: 17px 6px 40px 0px; background: none; top: -4px">
+
+						<p:commandButton value="Temizle" action="#{RezervasyonEkle.clean}"
+							update="panel" />
+						<p:commandButton value="Rezervasyonu Ekle"
+							action="#{RezervasyonEkle.Ekle}" update="panel" />
+
+						<p:commandButton id="odasec" value="Oda Seç"
+							onclick="odasec.show();" type="button" />
+						<p:commandButton id="musteriEkle" value="Müşteriyi Kaydet"
+							onclick="musteriEkle.show();" type="button" />
+							
+					</div>
+					<p:dialog header="Odalar" widgetVar="odasec" maximizable="true"
+						minimizable="true" style="height: 300px;overflow-y: auto">
+						<h:dataTable value="#{odaBean.bosOdalar}" var="yaz"
+							styleClass="tablo" headerClass="tablo-basligi"
+							rowClasses="tablo-cift-numarali-satir,tablo-tek-numarali-satir">
+							<h:column>
+								<f:facet name="header">
+									<h:outputLabel>Oda No</h:outputLabel>
+								</f:facet>
+								<h:commandButton styleClass="oda-button" value="#{yaz.odaNo}"
+									rendered="#{yaz.odaDurumu == 0}"
+									style="background-color: #15DD15;">
+									<f:setPropertyActionListener target="#{RezervasyonEkle.rezervasyon.odaNo}"
+										value="#{yaz.odaNo}" />
+								</h:commandButton>
+
+								<h:commandButton styleClass="oda-button" value="#{yaz.odaNo}"
+									rendered="#{yaz.odaDurumu == 1}" style="background-color: red;"
+									onclick="dolu.show();" type="button" id="dolu">
+								</h:commandButton>
+							
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputLabel>Kaç Kişilik</h:outputLabel>
+								</f:facet>
+								<h:outputLabel value="#{yaz.o_KisiSayisi}"></h:outputLabel>
+							</h:column>
+
+							<h:column>
+								<f:facet name="header">
+									<h:outputLabel>Oda Tipi</h:outputLabel>
+								</f:facet>
+								<h:outputLabel value="#{yaz.odaTipi}"></h:outputLabel>
+							</h:column>
+
+							<h:column>
+								<f:facet name="header">
+									<h:outputLabel>Gecelik Ücreti</h:outputLabel>
+								</f:facet>
+								<h:outputLabel value="#{yaz.geceUcreti}"></h:outputLabel>
+							</h:column>
+						</h:dataTable>
+					</p:dialog>
+					<p:dialog header="Müşteri Ekle" widgetVar="musteriEkle"
+						maximizable="true" minimizable="true">
+						<h:panelGrid columns="2">
+							<h:outputLabel>T.C. No:</h:outputLabel>
+							<p:inputText value="#{musteriBean.musteri.musteriTC}" />
+							<h:outputLabel>Müşteri Adı </h:outputLabel>
+							<p:inputText value="#{musteriBean.musteri.musteriAdi}" />
+							<h:outputLabel>Müşteri Soyadı: </h:outputLabel>
+							<p:inputText value="#{musteriBean.musteri.musteriSoyadi}" />
+							<h:outputLabel>Cep Telefonu:</h:outputLabel>
+							<p:inputText value="#{musteriBean.musteri.musteriCepTel}" />
+							<h:outputLabel>Ev Telefonu: </h:outputLabel>
+							<p:inputText value="#{musteriBean.musteri.musteriEvTel}" />
+							<h:outputLabel>Adresi:  </h:outputLabel>
+							<p:inputText value="#{musteriBean.musteri.musteriIlce}" />
+							<h:outputLabel>Şehri: </h:outputLabel>
+							<p:inputText value="#{musteriBean.musteri.musteriSehir}" />
+							<h:outputLabel>E-mail Adresi: </h:outputLabel>
+							<p:inputText value="#{musteriBean.musteri.musteriEmail}" />
+							<p:commandButton value="Temizle" action="#{musteriBean.clean}" />
+							<p:commandButton value="Ekle" action="#{musteriBean.Ekle}" />
+							
+						</h:panelGrid>
+					</p:dialog>
+					<p:dialog header="Bu oda dolu!" widgetVar="dolu" maximizable="true"
+						minimizable="true"> Bu odada mevcut müşteri vardır ve rezervasyon için uygun değildir. 
+                 <ui:insert name="doluoda">
+							<ui:include src="doluoda.xhtml" />
+						</ui:insert>
+					</p:dialog>
+
+					<p:dialog header="Bu oda kirli!" widgetVar="kirli"
+						maximizable="true" minimizable="true">
+						<h:outputLabel
+							value="Bu oda henüz temizlenmemiştir ve rezervasyon için uygun değildir" />
+					</p:dialog>
+
+				</div>
+
+			</div>
+
+
+
+		</h:form>
+
+	</h:body>
+</f:view>
+</html>

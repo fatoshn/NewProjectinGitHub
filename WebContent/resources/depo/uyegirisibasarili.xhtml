@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <head>
+        <title>Üye Girişi Başarılı</title>
+    </head>
+    <body>
+        <h:outputStylesheet library="images" name="style.css"/>
+        <h:graphicImage library="images" name="tamam.png" />
+        <h2><h:outputLabel value="Üye Paneli" />
+            <h:outputText class="renklendir" value="#{uyelikSistemi.uyeKullaniciAdi}" /> <br />
+            <h:outputLabel value="Hoşgeldiniz" />       
+        </h2>
+        
+        <h:panelGrid columns="2" >
+            <h:outputLabel>ID</h:outputLabel>
+            <h:outputText class="metinkutusu" value="#{uyelikSistemi.uyeid}" />
+            
+            <h:outputLabel>Kullanıcı Adı:</h:outputLabel>
+            <h:outputText class="metinkutusu" value="#{uyelikSistemi.uyeKullaniciAdi}" />
+            
+            <h:outputLabel>Parola</h:outputLabel>
+            <h:outputText class="metinkutusu" value="#{uyelikSistemi.uyeParola}" />
+            
+            <h:outputLabel>E-Posta</h:outputLabel>
+            <h:outputText class="metinkutusu" value="#{uyelikSistemi.uyeEmail}" />
+        </h:panelGrid>  
+        
+        <h:form>
+            <h:commandLink action="#{uyelikSistemi.uyeCikisiDenetle()}" value="Çıkış"/>
+            <h:commandLink action="uyeduzenleme?faces-redirect=true" value="Düzenle"/>
+            <h:commandLink action="uyegirisibasarili?faces-redirect=true" value="Üye Paneli"/>
+        </h:form>
+    </body>
+</html>

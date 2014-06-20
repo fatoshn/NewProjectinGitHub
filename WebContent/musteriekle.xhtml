@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<f:view>
+	<h:head>
+		<title>Müşteri Ekle</title>
+	</h:head>
+	<h:body>
+		<h:outputStylesheet library="css" name="style.css" />
+		<h:outputStylesheet library="css" name="stil.css" />
+		<h:outputStylesheet library="css" name="musteri.css" />
+		<h:form>
+
+			<div id="sayfa">
+				<div id="ust">
+					<ui:insert name="menu">
+						<ui:include src="menu.xhtml" />
+					</ui:insert>
+				</div>
+				<div id="orta" style="width: 813px; padding: 14px 0 0 25px;">
+					<h:panelGrid id="panel" columns="2">
+						<h:outputLabel>T.C. No:</h:outputLabel>
+						<p:inputText id="tcno" value="#{musteriBean.musteri.musteriTC}"
+							required="true">
+						</p:inputText>
+						<h:outputLabel>Müşteri Adı </h:outputLabel>
+						<p:inputText value="#{musteriBean.musteri.musteriAdi}"
+							required="true" />
+						<h:outputLabel>Müşteri Soyadı: </h:outputLabel>
+						<p:inputText value="#{musteriBean.musteri.musteriSoyadi}"
+							required="true" />
+						<h:outputLabel>Cep Telefonu:</h:outputLabel>
+						<p:inputText value="#{musteriBean.musteri.musteriCepTel}"
+							required="true" />
+						<h:outputLabel>Ev Telefonu: </h:outputLabel>
+						<p:inputText value="#{musteriBean.musteri.musteriEvTel}"
+							required="true" />
+						<h:outputLabel>İlçesi:  </h:outputLabel>
+						<p:inputText value="#{musteriBean.musteri.musteriIlce}"
+							required="true" />
+						<h:outputLabel>Şehri: </h:outputLabel>
+						<p:inputText value="#{musteriBean.musteri.musteriSehir}"
+							required="true" />
+						<h:outputLabel>E-mail Adresi: </h:outputLabel>
+						<p:inputText value="#{musteriBean.musteri.musteriEmail}"
+							required="true" />
+					</h:panelGrid>
+					<div style="margin-left: 119px; margin-top: 10px; height: 42px;">
+						<p:commandButton style="margin-right: 25px;" value="Temizle"
+							update="panel" process="@this"
+							actionListener="#{musteriBean.clean}" />
+						<p:commandButton update="panel" value="Ekle"
+							action="#{musteriBean.Ekle()}" />
+					</div>
+					<p:message for="tcno" display="icon" />
+
+				</div>
+			</div>
+		</h:form>
+
+	</h:body>
+</f:view>
+</html>

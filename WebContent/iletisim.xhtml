@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title>Otel Otomasyonu- İletişim</title>
+	<h:outputStylesheet library="css" name="style.css" />
+	<h:outputStylesheet library="css" name="index.css" />
+	<h:outputStylesheet library="css" name="stil.css" />
+	<h:outputStylesheet library="css" name="index2.css" />
+</h:head>
+<body>
+	<h:form>
+		<div id="sayfa">
+			<div id="ust">
+				<ui:insert name="menu">
+					<ui:include src="menu.xhtml" />
+				</ui:insert>
+			</div>
+			<p:panel header="İletişim Formu">
+			<p:panelGrid columns="2">
+			Konu:<h:selectOneMenu >
+			<f:selectItem itemValue="sikayet" itemLabel="Şikayet"></f:selectItem>
+			<f:selectItem itemValue="oneri" itemLabel="Öneri"></f:selectItem>
+			<f:selectItem itemValue="istek" itemLabel="İstek"></f:selectItem>
+			</h:selectOneMenu>
+			İsim: <h:inputText></h:inputText>
+			Email: <h:inputText></h:inputText>
+			Tel: <h:inputText></h:inputText>
+			Mesaj: <h:inputTextarea></h:inputTextarea>
+			<h:commandButton value="Gönder"></h:commandButton>
+			</p:panelGrid>
+			</p:panel>
+		</div>
+	</h:form>
+</body>
+</html>

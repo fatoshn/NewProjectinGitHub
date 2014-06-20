@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title>Otel Otomasyon - Login</title>
+	<link href="UyeGiris.css" type="text/css" rel="stylesheet" />
+</h:head>
+<body>
+
+
+	<h:form id="kayitForm">
+		<fieldset>
+			<legend> Kullanıcı Giriş Formu </legend>
+			<table>
+				<tr>
+					<td>Kullanıcı Adı</td>
+					<td>:</td>
+					<td><h:inputText value="#{loginBean.username}" /></td>
+				</tr>
+				<tr>
+					<td>Parola</td>
+					<td>:</td>
+					<td><h:inputSecret value="#{loginBean.password}" /></td>
+				</tr>
+				<tr>
+					<td><h:outputText value="#{loginBean.message}"></h:outputText>
+					</td>
+				</tr>
+
+				<tr>
+					<td><h:commandButton value="Temizle"
+							action="#{loginBean.clean()}" /></td>
+					<td></td>
+					<td><h:commandButton value="Giriş Yap"
+							action="#{loginBean.login}" /></td>
+				</tr>
+
+			</table>
+
+		</fieldset>
+	</h:form>
+</body>
+</html>
+
+
+
+
+

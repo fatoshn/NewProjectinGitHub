@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+        <f:view >
+    <h:head>
+        <title>Raporlama</title>
+    </h:head>
+          <h:body>
+              
+              <h:outputStylesheet library="css" name="style.css" />
+              <h:outputStylesheet library="css" name="stil.css" />
+              
+ 
+        <h:form>
+         
+            <div id="sayfa">
+                <div id="ust">
+            <ui:insert name="menu">
+                <ui:include src="menu.xhtml" />
+            </ui:insert>
+        </div>
+	
+	<div id="orta"  style="width:813px;padding:0">
+                    
+        <h:dataTable value="#{personelEkle.personelList}" var="yaz" styleClass="tablo" headerClass="tablo-basligi" rowClasses="tablo-cift-numarali-satir,tablo-tek-numarali-satir">
+                        
+            <h:column>
+                <f:facet name="header">
+                    <h:outputLabel>Personel Adı</h:outputLabel>
+                </f:facet>
+                <h:outputLabel value="#{yaz.name}"></h:outputLabel>
+            </h:column>
+            
+             <h:column>
+                <f:facet name="header">
+                    <h:outputLabel>Personel Soyad</h:outputLabel>
+                </f:facet>
+                <h:outputLabel value="#{yaz.surname}"></h:outputLabel>
+            </h:column>
+            
+             <h:column>
+                <f:facet name="header">
+                    <h:outputLabel>Email</h:outputLabel>
+                </f:facet>
+                <h:outputLabel value="#{yaz.email}"></h:outputLabel>
+            </h:column>
+             <h:column>
+                <f:facet name="header">
+                    <h:outputLabel>Başlama tarihi</h:outputLabel>
+                </f:facet>
+                <h:outputLabel value="#{yaz.startWork}"></h:outputLabel>
+            </h:column>
+            
+              <h:column>
+                <f:facet name="header">
+                    <h:outputLabel>Bitiş tarihi</h:outputLabel>
+                </f:facet>
+                <h:outputLabel value="#{yaz.endWork}"></h:outputLabel>
+            </h:column>
+       
+         
+          
+        </h:dataTable>
+             <p:dialog> </p:dialog>
+
+               </div>
+            </div>
+        </h:form>
+       
+        </h:body>
+    </f:view>
+</html>

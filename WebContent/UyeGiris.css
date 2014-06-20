@@ -1,0 +1,52 @@
+body
+{
+	background-image: url(img/login.jpg);
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    background-size: cover;
+	
+}
+
+fieldset
+{
+	width:500px;
+	margin:auto;
+	border:2px solid #7F7F7F;
+	background-color: #EEEEEE;
+	font-weight: bold;
+}
+legend
+{
+	background :#EEEEEE;
+	color:#000000;
+	border:2px solid #7F7F7F;
+	padding:7px;
+	font:tahoma;
+	font-size:17px;
+	font-style:Italic;	
+}
+table
+{
+	font:tahoma;
+	font-size:15px;
+	font-weight: bold;
+}
+.kullanici
+{
+	border :2px solid #7F7F7F;
+	height: 27px;
+	width : 200px;
+	background : url("img/member.jpg") no-repeat left center;
+	padding-left: 30px;
+	
+}
+.parola
+{
+	border :2px solid #7F7F7F;
+	height: 27px;
+	width : 200px;
+	background : url("img/password.jpg") no-repeat left center;
+	padding-left: 30px;
+}

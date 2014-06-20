@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>TODO supply a title</title>
+    </h:head>
+    <h:body>
+       <ui:composition>
+           <h:outputStylesheet library="css" name="style.css" />
+           <h:dataTable value="#{RezervasyonEkle.rezervasyonList}" var="doluOdaYaz" styleClass="tablo" headerClass="tablo-basligi" rowClasses="tablo-cift-numarali-satir,tablo-tek-numarali-satir">
+            <h:column>
+                <f:facet name="header">
+                    <h:outputLabel>Oda No</h:outputLabel>
+                </f:facet>         
+                <h:outputLabel  styleClass="oda-button" style="color:red" value="#{doluOdaYaz.odaNo}"/>
+            </h:column>
+               
+            <h:column>
+                <f:facet name="header">
+                    <h:outputLabel>Müşteri Adı</h:outputLabel>
+                </f:facet>
+                <h:outputLabel value="#{doluOdaYaz.musteriAdi}"></h:outputLabel>
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">
+                    <h:outputLabel>Müşteri Soyadı</h:outputLabel>
+                </f:facet>
+                <h:outputLabel value="#{doluOdaYaz.musteriSoyadi}"></h:outputLabel>
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">
+                    <h:outputLabel>Giriş Tarihi</h:outputLabel>
+                </f:facet>
+                <h:outputLabel value="#{doluOdaYaz.girisTarihi}"></h:outputLabel>
+            </h:column> 
+               
+                <h:column>
+                <f:facet name="header">
+                    <h:outputLabel>Çıkış Tarihi</h:outputLabel>
+                </f:facet>
+                <h:outputLabel value="#{doluOdaYaz.cikisTarihi}"></h:outputLabel>
+            </h:column>
+        </h:dataTable>
+          
+           
+       </ui:composition>
+    </h:body>
+</html>

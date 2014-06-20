@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/jsf"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>TODO supply a title</title>
+
+
+</h:head>
+<h:body>
+
+	<h:form>
+		<ui:composition>
+			<script src="js/jquery-ui.min.js"></script>
+
+
+			<div id="cssmenu" style="display: block">
+				<ul>
+					<li><a href='index.jsf'><span>Anasayfa</span></a></li>
+					<li><a href='yenirezervasyon.jsf'><span>Yeni
+								Rezervasyon</span></a></li>
+					<li><a href='musteriekle.jsf'><span>Müşteri Ekle</span></a></li>
+					<li><a href='personelekle.jsf'><span>Personel Ekle</span></a></li>
+					<li><a href='odaekle.jsf'><span>Oda Ekle</span></a></li>
+					<li><a href='iletisim.jsf'><span>İletişim</span></a></li>
+					<li class='last'><menu-toggle-button style='cursor: pointer'>
+						<a href="#"><span>Rapor</span></a></menu-toggle-button></li>
+				</ul>
+			</div>
+			<div id="cssmenu" class="toggle-menu" style="display: none;">
+				<ul>
+					<li><a href='rezervasyonlar.jsf'><span>Rezervasyonları
+								Listele</span></a></li>
+					<li><a href='musteriler.jsf'><span>Müşterileri
+								listele</span></a></li>
+					<li><a href='personeller.jsf'><span>Personelleri
+								Listele</span></a></li>
+					<li class='last'><a href='odalar.jsf'><span>Odaları
+								Listele</span></a></li>
+					<li class='last'><menu-toggle-button>
+						<a href="#"><span>Ana Menü</span></a></menu-toggle-button></li>
+				</ul>
+			</div>
+			<script>
+$("menu-toggle-button").click(function () {
+$(".toggle-menu").toggle();
+});
+</script>
+		</ui:composition>
+	</h:form>
+
+</h:body>
+</html>
